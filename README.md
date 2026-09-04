@@ -1,118 +1,145 @@
 # BlackPepper Website – Feature Enhancement
 
-A frontend-based feature enhancement project for the BlackPepper Info Services corporate website.
+A frontend web development project focused on enhancing the usability, interactivity, navigation, and visual experience of the BlackPepper Info Services corporate website.
 
-Project Overview
+The project is developed using HTML, CSS, and JavaScript.
 
-This project focuses on improving the visual presentation, usability, interactivity, and user experience of the website while retaining its core information structure.
+---
 
-The project is implemented using HTML, CSS, and JavaScript.
+## 📌 Project Overview
 
-Features
+The project focuses on introducing interactive frontend features and UI/UX improvements while maintaining the core structure and service information of the website.
 
-Visual & Theme Enhancement
-- Site-wide light/white and light-blue visual theme
-- Improved contrast for text, cards, buttons, and sections
-- Enhanced hero section with stronger visual effects
-- Improved card styling and UI elements
+The enhancements are implemented entirely on the client side using HTML, CSS, and JavaScript.
 
-Hero Section
+---
+
+## ✨ Features
+
+### 🎨 Visual & Theme Enhancement
+- Light/white and light-blue visual theme
+- Improved contrast across the website
+- Enhanced hero section styling
+- Improved cards, buttons, and visual elements
+- Hover and focus effects
+
+### 🏠 Hero Section
 - White hero background
-- Darker, high-contrast hero text
-- Enhanced glowing visual/orb effect
-- Floating cards with improved contrast
+- Dark, high-contrast hero text
+- Enhanced glowing visual effect
+- Floating technology cards
+- Updated CTA buttons
 
-Navbar & Navigation
+### 🧭 Navbar & Navigation
 - Sticky navigation bar
 - Blurred navbar effect
-- Improved navigation and CTA button contrast
+- Smooth navigation between sections
 - Active-section navigation highlighting
-- Mobile menu toggle
+- Mobile navigation menu
 - Scroll progress indicator
 
-Interactive Service Explorer
-- Nine service categories displayed as interactive cards
-- Service icons, titles, descriptions, and categories
-- Clicking a service opens a detailed modal
-- Modal includes service title, icon, description, and feature list
+### 💼 Interactive Service Explorer
+- Nine service cards
+- Service icons and descriptions
+- Individual service categories using `data-service`
+- Interactive service cards
+- Service detail modal
+- Feature list displayed inside the service modal
 
-Client-Side Service Search
-- Search field above the services section
-- Filters services by:
+### 🔎 Client-Side Service Search
+- Search field for services
+- Live filtering of service cards
+- Search works using:
   - Service title
-  - Description
+  - Service description
   - Service category
 - Case-insensitive search
-- Search query is preserved in the URL using `?q=...`
-- Filtered service pages can therefore be shared or bookmarked
+- Search query is stored in the URL using `?q=...`
+- Search results can be shared or bookmarked
 
-FAQ Accordion
+### ❓ FAQ Accordion
 - Expandable FAQ questions
-- Only one FAQ item remains open at a time
 - Interactive open/close behavior
+- Only one FAQ item can remain open at a time
 
-S.M.A.C. Interactive Section
-The S.M.A.C. section provides interactive tabs for:
+### ☁️ Interactive S.M.A.C. Section
+The S.M.A.C. section contains interactive tabs for:
+
 - Social
 - Mobility
 - Analytics
 - Cloud
 
-Selecting a tab dynamically updates the displayed information.
+Selecting a category dynamically updates the displayed content.
 
-Interactive Product Showcase
-- Product cards with interactive behavior
-- Product information displayed through modals
-- Modal can be closed by:
-  - Close button
-  - Clicking outside the modal
-  - Pressing Escape
+### 📦 Product Showcase
+The website presents interactive product cards for:
 
-Interactive Partner Section
-- Partner cards are clickable
-- Selected partners are visually highlighted
-- Contextual messages are displayed for the selected partner
+- Vidfy
+- VBC
+- CDNFlash
+- Graphshape
 
-Testimonial Carousel
+Selecting a product opens a product information modal.
+
+### 🤝 Partner Interaction
+- Interactive partner cards
+- Selected partner is visually highlighted
+- Contextual message displayed for the selected partner
+
+### ⭐ Testimonial Carousel
 - Automatically rotating testimonials
 - Previous and next controls
 - Navigation dots
 - Interactive testimonial navigation
 
-Contact Form Validation
+### 📩 Contact Form Validation
 Client-side validation for:
+
 - Name
 - Email
 - Phone
 - Message
 
 The form provides:
+
 - Inline validation errors
 - Input feedback
 - Success feedback after valid submission
 
-Responsive User Interface
-The website adapts its layout and components for different screen sizes, including desktop, tablet, and mobile devices.
-Accessibility & UX Improvements
+### 📱 Responsive Design
+The interface is designed to adapt to different screen sizes, including:
+
+- Desktop
+- Laptop
+- Tablet
+- Mobile
+
+### ♿ Accessibility & UX
 - Focus states
 - Hover states
 - Input focus outlines
-- Drop shadows for visual hierarchy
 - ARIA-friendly search labeling
 - Keyboard support for modal interactions
+- Escape-key modal closing
+- Click-outside modal closing
 
-Technologies Used
+---
+
+## 🛠️ Technologies Used
 
 - HTML5
 - CSS3
 - JavaScript
-- Responsive Web Design
 - DOM Manipulation
 - Intersection Observer API
 - CSS Animations
+- Responsive Web Design
 - Browser Developer Tools
 
-📂 Project Structure
+---
+
+## 📂 Project Structure
 
 ```text
 BlackPepper-website-project/
@@ -120,4 +147,4 @@ BlackPepper-website-project/
 ├── index.html
 ├── style.css
 ├── script.js
-
+└── README.md
