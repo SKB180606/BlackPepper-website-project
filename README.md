@@ -121,5 +121,4 @@ BlackPepper-website-project/
 ├── index.html
 ├── style.css
 ├── script.js
-└── assets/
-    └── images/
+
