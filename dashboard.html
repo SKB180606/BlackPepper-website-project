@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <!-- =====================================================
+         ADMIN ACCESS CHECK
+         ===================================================== -->
+
+    <script>
+
+        const auth =
+            sessionStorage.getItem("blackpepperAuth");
+
+        if (auth !== "admin") {
+
+            window.location.href =
+                "login.html";
+
+        }
+
+    </script>
+
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+
+    <title>
+        BlackPepper | Business Intelligence Dashboard
+    </title>
+
+
+    <link
+        rel="stylesheet"
+        href="dashboard.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside
+        class="sidebar"
+        id="sidebar"
+    >
+
+
+        <!-- BRAND -->
+
+        <a href="index.html" class="dashboard-brand">
+    <span>
+        <strong class="brand-black">Black</strong><strong class="brand-blue">Pepper</strong>
+        <small>InfoServices</small>
+    </span>
+</a>
+
+
+         
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="sidebar-nav">
+
+
+            <a
+                href="#overview"
+                class="nav-link active"
+            >
+
+                <span>
+                    ▦
+                </span>
+
+                Overview
+
+            </a>
+
+
+            <a
+                href="#leads"
+                class="nav-link"
+            >
+
+                <span>
+                    ♢
+                </span>
+
+                Leads
+
+            </a>
+
+
+            <a
+                href="#services"
+                class="nav-link"
+            >
+
+                <span>
+                    ◈
+                </span>
+
+                Services
+
+            </a>
+
+
+            <a
+                href="#analytics"
+                class="nav-link"
+            >
+
+                <span>
+                    ◉
+                </span>
+
+                Website Analytics
+
+            </a>
+
+
+            <a
+                href="#projects"
+                class="nav-link"
+            >
+
+                <span>
+                    ▤
+                </span>
+
+                Projects
+
+            </a>
+
+
+        </nav>
+
+
+        <!-- SIDEBAR BOTTOM -->
+
+        <div class="sidebar-bottom">
+
+
+            <div class="user-box">
+
+                <div class="user-avatar">
+                    A
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        Admininstrator
+                    </strong>
+
+                    <span>
+                        Company Employee
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="logout-btn"
+                id="logoutBtn"
+            >
+
+                Logout
+
+            </button>
+
+
+        </div>
+
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- =================================================
+             TOPBAR
+             ================================================= -->
+
+        <header class="topbar">
+
+
+            <button
+                class="menu-btn"
+                id="menuBtn"
+            >
+
+                ☰
+
+            </button>
+
+
+            <div>
+
+                <h1>
+                    Business Overview
+                </h1>
+
+                <p>
+                    Monitor website activity and lead performance.
+                </p>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+
+                <span class="sample-badge">
+
+                    Anayltics 
+
+                </span>
+
+
+                <div class="top-avatar">
+
+                    A
+
+                </div>
+
+
+            </div>
+
+
+        </header>
+
+
+        <!-- =================================================
+             DISCLAIMER
+             ================================================= -->
+
+      
+
+
+            
+
+        </div>
+
+
+        <!-- =================================================
+             OVERVIEW
+             ================================================= -->
+
+        <section id="projects" class="dashboard-section">
+
+    <div class="section-heading">
+        <div>
+            <span class="eyebrow">PROJECT PORTFOLIO</span>
+            <h2>Client & Project Performance</h2>
+            <p>
+                Monitor project progress, delivery status and current workload.
+            </p>
+        </div>
+    </div>
+
+    <!-- Project Summary -->
+    <div class="analytics-kpi-grid">
+
+        <div class="analytics-card">
+            <span>Active Projects</span>
+            <h3 id="activeProjects">0</h3>
+            <small>Currently in progress</small>
+        </div>
+
+        <div class="analytics-card">
+            <span>On Track</span>
+            <h3 id="onTrackProjects">0</h3>
+            <small>Projects progressing normally</small>
+        </div>
+
+        <div class="analytics-card">
+            <span>At Risk</span>
+            <h3 id="atRiskProjects">0</h3>
+            <small>Require attention</small>
+        </div>
+
+        <div class="analytics-card">
+            <span>Completed</span>
+            <h3 id="completedProjects">0</h3>
+            <small>Successfully completed</small>
+        </div>
+
+    </div>
+
+    <!-- Project Table -->
+    <div class="analytics-panel project-panel">
+
+        <div class="panel-heading project-heading">
+            <div>
+                <span class="eyebrow">CURRENT PROJECTS</span>
+                <h3>Project Portfolio</h3>
+            </div>
+
+            <span class="project-count" id="projectCount">
+                0 Projects
+            </span>
+        </div>
+
+        <div class="project-table-wrapper">
+
+            <table class="project-table">
+
+                <thead>
+                    <tr>
+                        <th>Project</th>
+                        <th>Client</th>
+                        <th>Service</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody id="projectsBody">
+
+                    <tr>
+                        <td colspan="5" style="text-align:center;">
+                            Loading projects...
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+        <!-- =================================================
+             TRAFFIC & LEADS
+             ================================================= -->
+
+        <section class="dashboard-section">
+
+
+            <div class="section-heading">
+
+
+                <div>
+
+                    <span class="eyebrow">
+                        PERFORMANCE
+                    </span>
+
+
+                    <h2>
+                        Visitors & Leads
+                    </h2>
+
+                </div>
+
+
+                <select id="periodSelect">
+
+                    <option>
+                        Last 6 Months
+                    </option>
+
+                    <option>
+                        Last 3 Months
+                    </option>
+
+                    <option>
+                        Last 12 Months
+                    </option>
+
+                </select>
+
+
+            </div>
+
+
+            <div class="chart-card">
+
+
+                <div class="chart-header">
+
+
+                    <div>
+
+                        <h3>
+                            Website Traffic & Lead Generation
+                        </h3>
+
+
+                        <p>
+                            Comparison of website visitors and generated leads.
+                        </p>
+
+                    </div>
+
+
+                    <div class="legend">
+
+
+                        <span>
+
+                            <i class="legend-dot visitors"></i>
+
+                            Visitors
+
+                        </span>
+
+
+                        <span>
+
+                            <i class="legend-dot leads"></i>
+
+                            Leads
+
+                        </span>
+
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="chart">
+
+
+                    <div class="y-axis">
+
+                        <span>
+                            3000
+                        </span>
+
+                        <span>
+                            2000
+                        </span>
+
+                        <span>
+                            1000
+                        </span>
+
+                        <span>
+                            0
+                        </span>
+
+                    </div>
+
+
+                    <div class="chart-area">
+
+
+                        <div class="grid-line line-1"></div>
+
+                        <div class="grid-line line-2"></div>
+
+                        <div class="grid-line line-3"></div>
+
+                        <div class="grid-line line-4"></div>
+
+
+                        <svg
+                            viewBox="0 0 800 280"
+                            preserveAspectRatio="none"
+                            class="chart-svg"
+                            id="performanceChart"
+                        >
+
+
+                            <!-- VISITORS -->
+
+                            <polyline
+                                class="visitor-line"
+                                id="visitorLine"
+                                points=""
+                            />
+
+
+                            <!-- LEADS -->
+
+                            <polyline
+                                class="lead-line"
+                                id="leadLine"
+                                points=""
+                            />
+
+
+                        </svg>
+
+
+                        <div
+                            class="x-axis"
+                            id="chartXAxis"
+                        >
+
+                            <span>
+                                Jan
+                            </span>
+
+                            <span>
+                                Feb
+                            </span>
+
+                            <span>
+                                Mar
+                            </span>
+
+                            <span>
+                                Apr
+                            </span>
+
+                            <span>
+                                May
+                            </span>
+
+                            <span>
+                                Jun
+                            </span>
+
+                            <span>
+                                Jul
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             LEAD CONVERSION FUNNEL
+             ================================================= -->
+
+        <section
+            id="leads"
+            class="dashboard-section"
+        >
+
+
+            <div class="section-heading">
+
+
+                <div>
+
+                    <span class="eyebrow">
+                        LEAD MANAGEMENT
+                    </span>
+
+
+                    <h2>
+                        Lead Conversion Funnel
+                    </h2>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="funnel-card">
+
+
+                <!-- WEBSITE VISITORS -->
+
+                <div class="funnel-step">
+
+
+                    <div
+                        class="funnel-number"
+                        id="funnelVisitors"
+                    >
+                        0
+                    </div>
+
+
+                    <div
+                        class="funnel-bar visitors-bar"
+                    >
+                    </div>
+
+
+                    <strong>
+                        Website Visitors
+                    </strong>
+
+
+                </div>
+
+
+                <div class="funnel-arrow">
+                    ↓
+                </div>
+
+
+                <!-- NEW LEADS -->
+
+                <div class="funnel-step">
+
+
+                    <div
+                        class="funnel-number"
+                        id="funnelLeads"
+                    >
+                        0
+                    </div>
+
+
+                    <div
+                        class="funnel-bar leads-bar"
+                    >
+                    </div>
+
+
+                    <strong>
+                        New Leads
+                    </strong>
+
+
+                </div>
+
+
+                <div class="funnel-arrow">
+                    ↓
+                </div>
+
+
+                <!-- QUALIFIED LEADS -->
+
+                <div class="funnel-step">
+
+
+                    <div
+                        class="funnel-number"
+                        id="funnelQualified"
+                    >
+                        0
+                    </div>
+
+
+                    <div
+                        class="funnel-bar qualified-bar"
+                    >
+                    </div>
+
+
+                    <strong>
+                        Qualified Leads
+                    </strong>
+
+
+                </div>
+
+
+                <div class="funnel-arrow">
+                    ↓
+                </div>
+
+
+                <!-- PROPOSALS -->
+
+                <div class="funnel-step">
+
+
+                    <div
+                        class="funnel-number"
+                        id="funnelProposals"
+                    >
+                        0
+                    </div>
+
+
+                    <div
+                        class="funnel-bar proposal-bar"
+                    >
+                    </div>
+
+
+                    <strong>
+                        Proposals
+                    </strong>
+
+
+                </div>
+
+
+                <div class="funnel-arrow">
+                    ↓
+                </div>
+
+
+                <!-- CONVERTED -->
+
+                <div class="funnel-step">
+
+
+                    <div
+                        class="funnel-number"
+                        id="funnelConverted"
+                    >
+                        0
+                    </div>
+
+
+                    <div
+                        class="funnel-bar converted-bar"
+                    >
+                    </div>
+
+
+                    <strong>
+                        Converted
+                    </strong>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             SERVICES
+             ================================================= -->
+
+        <section
+            id="services"
+            class="dashboard-section"
+        >
+
+
+            <div class="section-heading">
+
+
+                <div>
+
+                    <span class="eyebrow">
+                        BUSINESS PERFORMANCE
+                    </span>
+
+
+                    <h2>
+                        Service Performance
+                    </h2>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="services-layout">
+
+
+                <!-- SERVICE CHART -->
+
+                <div class="service-chart-card">
+
+
+                    <h3>
+                        Lead Distribution by Service
+                    </h3>
+
+
+                    <div class="service-bars">
+
+
+                        <!-- WEB DEVELOPMENT -->
+
+                        <div
+                            class="service-row"
+                            data-service="Web Development"
+                        >
+
+
+                            <div class="service-label">
+
+                                <span>
+                                    Web Development
+                                </span>
+
+
+                                <strong id="serviceWebDevelopment">
+                                    0%
+                                </strong>
+
+                            </div>
+
+
+                            <div class="service-track">
+
+                                <div
+                                    class="service-fill"
+                                    id="fillWebDevelopment"
+                                    style="width:0%"
+                                >
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <!-- MOBILE APPS -->
+
+                        <div
+                            class="service-row"
+                            data-service="Mobile Apps"
+                        >
+
+
+                            <div class="service-label">
+
+                                <span>
+                                    Mobile Apps
+                                </span>
+
+
+                                <strong id="serviceMobileApps">
+                                    0%
+                                </strong>
+
+                            </div>
+
+
+                            <div class="service-track">
+
+                                <div
+                                    class="service-fill"
+                                    id="fillMobileApps"
+                                    style="width:0%"
+                                >
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <!-- E-COMMERCE -->
+
+                        <div
+                            class="service-row"
+                            data-service="E-Commerce"
+                        >
+
+
+                            <div class="service-label">
+
+                                <span>
+                                    E-Commerce
+                                </span>
+
+
+                                <strong id="serviceEcommerce">
+                                    0%
+                                </strong>
+
+                            </div>
+
+
+                            <div class="service-track">
+
+                                <div
+                                    class="service-fill"
+                                    id="fillEcommerce"
+                                    style="width:0%"
+                                >
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <!-- CLOUD -->
+
+                        <div
+                            class="service-row"
+                            data-service="Cloud Solutions"
+                        >
+
+
+                            <div class="service-label">
+
+                                <span>
+                                    Cloud Solutions
+                                </span>
+
+
+                                <strong id="serviceCloud">
+                                    0%
+                                </strong>
+
+                            </div>
+
+
+                            <div class="service-track">
+
+                                <div
+                                    class="service-fill"
+                                    id="fillCloud"
+                                    style="width:0%"
+                                >
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <!-- DIGITAL MARKETING -->
+
+                        <div
+                            class="service-row"
+                            data-service="Digital Marketing"
+                        >
+
+
+                            <div class="service-label">
+
+                                <span>
+                                    Digital Marketing
+                                </span>
+
+
+                                <strong id="serviceDigitalMarketing">
+                                    0%
+                                </strong>
+
+                            </div>
+
+
+                            <div class="service-track">
+
+                                <div
+                                    class="service-fill"
+                                    id="fillDigitalMarketing"
+                                    style="width:0%"
+                                >
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- SERVICE INSIGHT -->
+
+                <div class="service-insight">
+
+
+                    <span class="eyebrow">
+                        TOP PERFORMING SERVICE
+                    </span>
+
+
+                    <h3 id="topServiceName">
+                        Web Development
+                    </h3>
+
+
+                    <p id="topServiceDescription">
+
+                        Web Development represents the highest share
+                        of demonstrated lead activity in the prototype.
+
+                    </p>
+
+
+                    <div class="insight-stat">
+
+
+                        <strong id="topServicePercentage">
+                            0%
+                        </strong>
+
+
+                        <span>
+                            of sample service leads
+                        </span>
+
+
+                    </div>
+
+
+                    <button
+                        id="serviceDetailsBtn"
+                    >
+
+                        View Details →
+
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             RECENT INQUIRIES
+             ================================================= -->
+
+        <section
+            class="dashboard-section"
+            id="inquiries"
+        >
+
+
+            <div class="section-heading">
+
+
+                <div>
+
+                    <span class="eyebrow">
+                        LEAD MANAGEMENT
+                    </span>
+
+
+                    <h2>
+                        Recent Inquiries
+                    </h2>
+
+                </div>
+
+
+                <button
+                    class="outline-btn"
+                    id="viewAllBtn"
+                >
+
+                    View All
+
+                </button>
+
+
+            </div>
+
+
+            <div class="table-card">
+
+
+                <table>
+
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Client
+                            </th>
+
+                            <th>
+                                Service
+                            </th>
+
+                            <th>
+                                Date
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="inquiriesBody">
+                    </tbody>
+
+
+                </table>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             WEBSITE ANALYTICS
+             ================================================= -->
+
+        <section id="website" class="dashboard-section">
+
+    <div class="section-heading">
+        <div>
+            <span class="eyebrow">WEBSITE PERFORMANCE</span>
+            <h2>Website Analytics</h2>
+            <p>
+                Monitor website traffic, visitor behaviour and device usage.
+            </p>
+        </div>
+    </div>
+
+    <!-- Analytics KPI Cards -->
+    <div class="analytics-kpi-grid">
+
+        <div class="analytics-card">
+            <span>Total Visitors</span>
+            <h3 id="analyticsVisitors">0</h3>
+            <small>Across available months</small>
+        </div>
+
+        <div class="analytics-card">
+            <span>Avg. Session Duration</span>
+            <h3 id="analyticsSession">0</h3>
+            <small>Average visitor engagement</small>
+        </div>
+
+        <div class="analytics-card">
+            <span>Bounce Rate</span>
+            <h3 id="analyticsBounce">0%</h3>
+            <small>Average bounce rate</small>
+        </div>
+
+        <div class="analytics-card">
+            <span>Returning Visitors</span>
+            <h3 id="analyticsReturning">0%</h3>
+            <small>Share of returning users</small>
+        </div>
+
+    </div>
+
+    <!-- Traffic + Top Pages -->
+    <div class="analytics-layout">
+
+        <div class="analytics-panel">
+            <div class="panel-heading">
+                <div>
+                    <span class="eyebrow">TRAFFIC</span>
+                    <h3>Monthly Website Traffic</h3>
+                </div>
+            </div>
+
+            <div id="monthlyTraffic" class="traffic-list">
+                <p>Loading analytics...</p>
+            </div>
+        </div>
+
+        <div class="analytics-panel">
+            <div class="panel-heading">
+                <div>
+                    <span class="eyebrow">POPULAR CONTENT</span>
+                    <h3>Most Visited Pages</h3>
+                </div>
+            </div>
+
+            <div id="topPages" class="traffic-list">
+                <p>Loading pages...</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Device Breakdown -->
+    <div class="analytics-layout">
+
+        <div class="analytics-panel">
+            <div class="panel-heading">
+                <div>
+                    <span class="eyebrow">DEVICE USAGE</span>
+                    <h3>Visitors by Device</h3>
+                </div>
+            </div>
+
+            <div id="deviceBreakdown" class="device-list">
+                <p>Loading device data...</p>
+            </div>
+        </div>
+
+        <div class="analytics-panel">
+            <div class="panel-heading">
+                <div>
+                    <span class="eyebrow">VISITOR TYPE</span>
+                    <h3>New vs Returning</h3>
+                </div>
+            </div>
+
+            <div class="visitor-type">
+                <div class="visitor-stat">
+                    <span>New Visitors</span>
+                    <strong id="newVisitorPercentage">0%</strong>
+                </div>
+
+                <div class="visitor-bar">
+                    <div
+                        id="newVisitorBar"
+                        class="visitor-fill"
+                        style="width:0%"
+                    ></div>
+                </div>
+
+                <div class="visitor-stat">
+                    <span>Returning Visitors</span>
+                    <strong id="returningVisitorPercentage">0%</strong>
+                </div>
+
+                <div class="visitor-bar">
+                    <div
+                        id="returningVisitorBar"
+                        class="visitor-fill"
+                        style="width:0%"
+                    ></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+        <!-- =================================================
+             FOOTER
+             ================================================= -->
+
+        <footer>
+
+
+            <p>
+
+                BlackPepper Business Intelligence Dashboard
+
+            </p>
+
+
+            <span>
+
+                Academic Prototype • Synthetic Demonstration Data
+
+            </span>
+
+
+        </footer>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         LEAD MODAL
+         ===================================================== -->
+
+    <div
+        class="modal"
+        id="leadModal"
+    >
+
+
+        <div class="modal-content">
+
+
+            <button
+                class="close-modal"
+                id="closeModal"
+            >
+
+                ×
+
+            </button>
+
+
+            <span class="eyebrow">
+
+                DEMONSTRATION RECORD
+
+            </span>
+
+
+            <h2>
+
+                Lead Details
+
+            </h2>
+
+
+            <div class="modal-details">
+
+
+                <div>
+
+                    <span>
+                        Client
+                    </span>
+
+                    <strong id="modalClient">
+                        Demo Client
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Service
+                    </span>
+
+                    <strong id="modalService">
+                        Web Development
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Status
+                    </span>
+
+                    <strong id="modalStatus">
+                        New
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+            <p class="modal-note">
+
+                This record is synthetic demonstration data
+                created for the academic prototype.
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+    <!-- =====================================================
+         DASHBOARD JAVASCRIPT
+         ===================================================== -->
+
+    <script src="dashboard.js"></script>
+
+
+</body>
+
+</html>
